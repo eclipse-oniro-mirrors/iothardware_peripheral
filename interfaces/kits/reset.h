@@ -13,12 +13,42 @@
  * limitations under the License.
  */
 
-#include "wifiiot_adc.h"
-#include "hal_wifiiot_adc.h"
+/**
+ * @addtogroup power
+ * @{
+ *
+ * @brief Provides device power management functions.
+ *
+ * This module is used to reboot the device and set low power consumption for the device. \n
+ *
+ * @since 2.2
+ * @version 2.2
+ */
 
-unsigned int AdcRead(WifiIotAdcChannelIndex channel, unsigned short *data, WifiIotAdcEquModelSel equModel,
-                     WifiIotAdcCurBais curBais, unsigned short rstCnt)
-{
-    return HalAdcRead((HalWifiIotAdcChannelIndex)channel, data, (HalWifiIotAdcEquModelSel) equModel,
-                      (HalWifiIotAdcCurBais)curBais, rstCnt);
-}
+/**
+ * @file reset.h
+ *
+ * @brief Reboots the device.
+ *
+ *
+ *
+ * @since 2.2
+ * @version 2.2
+ */
+
+#ifndef RESET_H
+#define RESET_H
+
+/**
+ * @brief Reboots the device using different causes.
+ *
+ *
+ *
+ * @param cause Indicates the reboot cause.
+ * @since 2.2
+ * @version 2.2
+ */
+void RebootDevice(unsigned int cause);
+
+#endif
+/** @} */
