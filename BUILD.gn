@@ -11,19 +11,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("//build/lite/config/subsystem/lite_subsystem.gni")
 import("//build/lite/ndk/ndk.gni")
 
-lite_subsystem("iothardware") {
-  subsystem_components = [
-    "$ohos_vendor_adapter_dir/hals/iot_hardware/wifiiot_lite:hal_iothardware",
+group("iothardware") {
+  deps = [
+    "$ohos_board_adapter_dir/hals/iot_hardware/wifiiot_lite:hal_iothardware",
   ]
 }
 
 if (ohos_kernel_type == "liteos_m") {
   ndk_lib("iothardware_ndk") {
     deps = [
-      "$ohos_vendor_adapter_dir/hals/iot_hardware/wifiiot_lite:hal_iothardware",
+      "$ohos_board_adapter_dir/hals/iot_hardware/wifiiot_lite:hal_iothardware",
     ]
     head_files = [ "//base/iot_hardware/peripheral/interfaces/kits" ]
   }
